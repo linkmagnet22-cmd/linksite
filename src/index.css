@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1a1a2e;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #E8552D22;
+  color: #E8552D;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.fade-up { animation: fadeUp 0.8s ease-out both; }
+.fade-up-d1 { animation: fadeUp 0.8s 0.15s ease-out both; }
+.fade-up-d2 { animation: fadeUp 0.8s 0.3s ease-out both; }
+.fade-up-d3 { animation: fadeUp 0.8s 0.45s ease-out both; }
+
+.logo-strip {
+  display: flex;
+  animation: scroll 30s linear infinite;
+  width: max-content;
+}
+.logo-strip:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; }
+  .services-grid { grid-template-columns: 1fr !important; }
+  .case-layout { grid-template-columns: 1fr !important; }
+  .case-thumbs { grid-template-columns: repeat(2, 1fr) !important; }
+  .logo-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .hero-title { font-size: 42px !important; }
+  .section-title { font-size: 32px !important; }
+  .nav-links { display: none !important; }
+  .section-pad { padding: 60px 20px !important; }
+  .hero-pad { padding: 120px 20px 60px !important; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr 1fr !important; }
+  .hero-title { font-size: 36px !important; }
+  .cta-buttons { flex-direction: column !important; }
+  .cta-buttons a { width: 100%; text-align: center; }
+}
