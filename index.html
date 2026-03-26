@@ -479,6 +479,11 @@
     </div>
 
     <script>
+        // Failsafe: Ensure scrolling is enabled on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.overflow = 'auto';
+        });
+
         // Modal functions
         function openModal(modalId) {
             document.getElementById(modalId).classList.add('active');
@@ -489,6 +494,17 @@
             document.getElementById(modalId).classList.remove('active');
             document.body.style.overflow = 'auto';
         }
+
+        // Failsafe: Reset scroll if no modals are open
+        function resetScroll() {
+            const hasActiveModal = document.querySelector('.modal.active');
+            if (!hasActiveModal) {
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Check and reset scroll every second as a safety measure
+        setInterval(resetScroll, 1000);
 
         // Close modal on background click
         document.querySelectorAll('.modal').forEach(modal => {
