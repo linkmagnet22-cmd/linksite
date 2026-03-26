@@ -1,22 +1,629 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Link Magnet — 0 to 1 Growth Specialists | Performance Marketing Agency</title>
-    <meta name="description" content="We take D2C brands from ₹0 to ₹5 Lacs/month in 6 months. Performance marketing, web design, branding & content production. Based in Coimbatore, serving Pan-India." />
-    <meta name="keywords" content="performance marketing, D2C marketing, digital marketing agency, Coimbatore, Meta ads, Google ads, web design, branding" />
-    <meta property="og:title" content="Link Magnet — 0 to 1 Growth Specialists" />
-    <meta property="og:description" content="We take D2C brands from ₹0 to ₹5 Lacs/month in 6 months. Performance marketing, web design, branding & content." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.link-magnet.com" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Magnet - Growth Specialists</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B4A;
+            --primary-dark: #E85533;
+            --dark: #1A1A1A;
+            --cream: #FFF5F0;
+            --text-gray: #666;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 0.875rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 74, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 5%;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+            padding: 0.875rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            animation: slideUp 0.4s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-gray);
+            transition: color 0.3s;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .modal-close:hover {
+            color: var(--dark);
+            background: var(--cream);
+        }
+
+        .modal h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .modal p {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.875rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #E5E5E5;
+            border-radius: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(255, 107, 74, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 74, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-message {
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #D4EDDA;
+            color: #155724;
+            border: 1px solid #C3E6CB;
+        }
+
+        .form-message.error {
+            background: #F8D7DA;
+            color: #721C24;
+            border: 1px solid #F5C6CB;
+        }
+
+        .form-message.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .modal-content {
+                padding: 2rem;
+            }
+
+            .modal h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">L</div>
+            <span>Link Magnet</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="cta-button" onclick="openModal('bookCallModal')">Book a Call</button>
+    </nav>
+
+    <section class="hero">
+        <div class="badge">
+            <span class="pulse"></span>
+            0 → 1 GROWTH SPECIALISTS
+        </div>
+        <h1>
+            We take brands from<br>
+            <span class="highlight">₹0</span> to <span class="highlight">₹5 Lacs/month</span>.
+        </h1>
+        <p class="subtitle">
+            Performance marketing, web design, branding & content — everything your D2C brand needs to go from zero to revenue in 6 months.
+        </p>
+        <div class="hero-buttons">
+            <button class="cta-button" onclick="openModal('auditModal')">Get Your Free Audit →</button>
+            <button class="btn-secondary" onclick="openModal('bookCallModal')">See Our Results</button>
+        </div>
+    </section>
+
+    <!-- Free Audit Modal -->
+    <div id="auditModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('auditModal')">×</button>
+            <h2>Get Your Free Audit</h2>
+            <p>Tell us about your brand and we'll send you a comprehensive growth audit with actionable insights.</p>
+            
+            <div id="auditMessage" class="form-message"></div>
+            
+            <form id="auditForm" onsubmit="submitAuditForm(event)">
+                <div class="form-group">
+                    <label for="audit-name">Your Name *</label>
+                    <input type="text" id="audit-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="audit-email">Email Address *</label>
+                    <input type="email" id="audit-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="audit-phone">Phone Number</label>
+                    <input type="tel" id="audit-phone" name="phone" placeholder="+91">
+                </div>
+                <div class="form-group">
+                    <label for="audit-website">Website URL</label>
+                    <input type="url" id="audit-website" name="website" placeholder="https://">
+                </div>
+                <div class="form-group">
+                    <label for="audit-business">Tell us about your business *</label>
+                    <textarea id="audit-business" name="business" required placeholder="What do you sell? Who are your customers? What's your biggest challenge?"></textarea>
+                </div>
+                <button type="submit" class="submit-btn" id="auditSubmitBtn">Send My Audit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Book a Call Modal -->
+    <div id="bookCallModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('bookCallModal')">×</button>
+            <h2>Book a Call</h2>
+            <p>Schedule a free 30-minute strategy session with our growth specialists.</p>
+            
+            <div id="callMessage" class="form-message"></div>
+            
+            <form id="callForm" onsubmit="submitCallForm(event)">
+                <div class="form-group">
+                    <label for="call-name">Your Name *</label>
+                    <input type="text" id="call-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="call-email">Email Address *</label>
+                    <input type="email" id="call-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="call-phone">Phone Number *</label>
+                    <input type="tel" id="call-phone" name="phone" required placeholder="+91">
+                </div>
+                <div class="form-group">
+                    <label for="call-company">Company Name</label>
+                    <input type="text" id="call-company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="call-message">What would you like to discuss? *</label>
+                    <textarea id="call-message" name="message" required placeholder="Tell us about your goals and challenges..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn" id="callSubmitBtn">Request a Call</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on background click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    closeModal(modal.id);
+                });
+            }
+        });
+
+        // Google Sheets Integration - YOUR SCRIPT URL IS ALREADY HERE!
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzEG9sFHM1BRDWX2qijl8P90AhwX3sKJYBCgA4xrTwUOL8BRQJCsPJ4mAHR0QBILvME/exec';
+
+        async function submitAuditForm(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('auditSubmitBtn');
+            const message = document.getElementById('auditMessage');
+            const form = document.getElementById('auditForm');
+            
+            // Disable button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Get form data
+            const formData = new FormData(form);
+            const data = {
+                type: 'Free Audit',
+                timestamp: new Date().toISOString(),
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                website: formData.get('website'),
+                business: formData.get('business')
+            };
+            
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                // Show success message
+                message.className = 'form-message success active';
+                message.textContent = '🎉 Thank you! We\'ll send your audit within 24 hours.';
+                
+                // Reset form
+                form.reset();
+                
+                // Close modal after 2 seconds
+                setTimeout(() => {
+                    closeModal('auditModal');
+                    message.classList.remove('active');
+                }, 2000);
+                
+            } catch (error) {
+                // Show error message
+                message.className = 'form-message error active';
+                message.textContent = '❌ Oops! Something went wrong. Please try again or email us directly.';
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send My Audit Request';
+            }
+        }
+
+        async function submitCallForm(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('callSubmitBtn');
+            const message = document.getElementById('callMessage');
+            const form = document.getElementById('callForm');
+            
+            // Disable button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Get form data
+            const formData = new FormData(form);
+            const data = {
+                type: 'Book a Call',
+                timestamp: new Date().toISOString(),
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                company: formData.get('company'),
+                message: formData.get('message')
+            };
+            
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                // Show success message
+                message.className = 'form-message success active';
+                message.textContent = '🎉 Thank you! We\'ll contact you within 24 hours to schedule your call.';
+                
+                // Reset form
+                form.reset();
+                
+                // Close modal after 2 seconds
+                setTimeout(() => {
+                    closeModal('bookCallModal');
+                    message.classList.remove('active');
+                }, 2000);
+                
+            } catch (error) {
+                // Show error message
+                message.className = 'form-message error active';
+                message.textContent = '❌ Oops! Something went wrong. Please try again or email us directly.';
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Request a Call';
+            }
+        }
+    </script>
+</body>
 </html>
