@@ -22,18 +22,18 @@
             --text-gray: #666;
         }
 
+        html {
+            overflow-x: hidden;
+            overflow-y: scroll;
+            height: 100%;
+        }
+        
         body {
             font-family: 'DM Sans', sans-serif;
             background: var(--cream);
             color: var(--dark);
             overflow-x: hidden;
-            overflow-y: auto !important;
-            height: auto !important;
-        }
-        
-        html {
-            overflow-y: auto !important;
-            height: auto !important;
+            min-height: 100vh;
         }
         
         body.modal-open {
